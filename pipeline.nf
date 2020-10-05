@@ -85,7 +85,7 @@ ________________________________________________________________________________
 */
 
 process prokka {
-    container 'file://singularity_recipes/images/prokka.simg'
+    container 'file://singularity_images/prokka.simg'
     
     publishDir "${params.outdir}/prokka", mode: 'copy'
     
@@ -117,7 +117,7 @@ process prokka {
 
 
 process roary {
-    container 'file://singularity_recipes/images/roary.simg'
+    container 'file://singularity_images/roary.simg'
     label 'multithreaded'
     publishDir "${params.outdir}/roary", mode: 'copy'
     
@@ -151,7 +151,7 @@ ________________________________________________________________________________
 */
 
 process mash {
-    container 'file://singularity_recipes/images/mash.simg'    
+    container 'file://singularity_images/mash.simg'    
 
     publishDir "${params.outdir}/mash", mode: 'copy'
     label 'multithreaded'
@@ -168,7 +168,7 @@ process mash {
 }
 
 process kraken {
-    container 'file://singularity_recipes/images/kraken2.simg'
+    container 'file://singularity_images/kraken2.simg'
 
     publishDir "${params.outdir}/kraken", mode: 'copy'
 
@@ -190,7 +190,7 @@ ________________________________________________________________________________
 */
 
 process core_genes {
-    container 'file://singularity_recipes/images/python_R.simg'
+    container 'file://singularity_images/python_R.simg'
     publishDir "${params.outdir}/core", mode: 'copy'
 
     input:
@@ -222,7 +222,7 @@ ________________________________________________________________________________
 
 
 process tajima {
-    container 'file://singularity_recipes/images/python_R.simg'
+    container 'file://singularity_images/python_R.simg'
     publishDir "${params.outdir}/tajima", mode: 'copy'
     label 'multithreaded'
 
@@ -239,9 +239,16 @@ process tajima {
     """
 }
 
+/*
+____________________________________________________________________________________________________
+STEP 5
+Prepare the pan genome reference sequences for analysis
+____________________________________________________________________________________________________
+*/
+
 
 process translate_reference {
-    container 'file://singularity_recipes/images/python_R.simg'
+    container 'file://singularity_images/python_R.simg'
     publishDir "${params.outdir}/protein_reference", mode: 'copy'
     
     input:
@@ -257,7 +264,7 @@ process translate_reference {
 }
 
 process split_fasta {
-    container 'file://singularity_recipes/images/python_R.simg'
+    container 'file://singularity_images/python_R.simg'
     publishDir "${params.outdir}/loctree_in", mode: 'copy'
 
     input:
@@ -271,4 +278,185 @@ process split_fasta {
     python /opt/split_fasta.py $ref
     """
 }
+
+/*
+____________________________________________________________________________________________________
+STEP 6
+Immunological predictions: MHC I and II and BCR binding
+____________________________________________________________________________________________________
+*/
+
+process mhc_i_binding {
+    container 'twhalley93/bvd:latest'
+
+    publishDir "${params.outdir}/mhc_i", mode: 'copy'
+
+    input:
+    each file(fasta_file) from single_protein_files
+
+    output:
+    file("*_mhc_i.txt") into mhc_i_files
+
+    script:
+    """
+    netMHCpan -f $fasta_file > ${fasta_file.baseName}_mhc_i.txt
+    """
+
+}
+
+process mhc_ii_binding {
+    container 'twhalley93/bvd:latest'
+
+    publishDir "${params.outdir}/mhc_ii", mode: 'copy'
+
+    input:
+    each file(fasta_file) from single_protein_files
+
+    output:
+    file("*_mhc_ii.txt") into mhc_ii_files
+
+    script:
+    """
+    netMHCIIpan  -f $fasta_file > ${fasta_file.baseName}_mhc_ii.txt
+   """
+}
+
+
+process bepipred{
+    container 'twhalley93/bvd:latest'
+
+    publishDir "${params.outdir}/bcell", mode: 'copy'
+
+    input:
+    each file(fasta_file) from single_protein_files
+
+    output:
+    file("*_bcell.txt") into bcell_files
+
+    script:
+    """
+    python predict_antibody_epitope.py -f $fasta_fasta_file  -m Bepipred > ${fasta_file.baseName}_bcell.txt 
+    """
+}
+
+
+process clean_mhc_ii{
+    container 'file://singularity_images/python_R.simg' 
+
+    publishDir "${params.outdir}/final_output", mode: 'copy'
+
+    input:
+    file mhc_ii from mhc_ii_files.collect()
+
+    output:
+    file("mhc_ii_binders.txt") into mhc_ii_clean
+
+    script:
+    """
+    parse_mhc_ii.py $mhc_ii
+    """
+}
+
+process clean_mhc_i{
+    container 'file://singularity_images/python_R.simg' 
+
+    publishDir "${params.outdir}/final_output", mode: 'copy'
+
+    input:
+    file mhc_i from mhc_i_files.collect()
+
+    output:
+    file("mhc_i_binders.txt") into mhc_i_clean
+
+    script:
+    """
+    parse_mhc_i.py $mhc_i
+    """
+}
+
+process clean_bcell{
+    container 'file://singularity_images/python_R.simg' 
+
+    publishDir "${params.outdir}/final_output", mode: 'copy'
+
+    input:
+    file bcell from bcell_files.collect()
+
+    output:
+    file("mhc_i_binders.txt") into mhc_i_clean
+
+    script:
+    """
+    parse_bcell.py $bcell
+    """
+}   
+
+/*
+____________________________________________________________________________________________________
+STEP 7
+Subcellular localisation
+____________________________________________________________________________________________________
+*/
+
+process run_loctree {
+    container 'file://singularity_images/loctree.simg'
+
+    publishDir "${params.outdir}/loctree_out", mode: 'copy'
+
+    input:
+    each file(single_fasta) from single_protein_files
+
+    output:
+    file("*.out") into loctree_results
+
+    script:
+    """
+    loctree3 -f $single_fasta -d bact -r ${single_fasta.baseName}.out -b /data/bacteria.profile
+    """
+}
+
+process clean_loctree{
+    container 'file://singularity_images/python_R.simg'
+   
+    publishDir "${params.outdir}/final_output", mode: 'copy'
+
+    input:
+    file(locfiles) from loctree_results.collect()
+
+    output:
+    file("loctree_parsed.txt") into output_files
+
+    script:
+    """
+    locgene_parser.py $locfiles
+    """
+}
+
+/*
+____________________________________________________________________________________________________
+STEP 8
+BLAST searching
+____________________________________________________________________________________________________
+*/
+
+
+/*
+____________________________________________________________________________________________________
+STEP 9
+Physiochemical (strucure and amino acid)
+____________________________________________________________________________________________________
+*/
+
+/*
+____________________________________________________________________________________________________
+STEP 10
+Output
+____________________________________________________________________________________________________
+*/
+
+
+
+
+
+
 

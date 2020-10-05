@@ -1,0 +1,185 @@
+Jul-27 15:21:36.000 [main] DEBUG nextflow.cli.Launcher - $> nextflow run pipeline.nf -profile slurm,singularity
+Jul-27 15:21:36.151 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 19.07.0
+Jul-27 15:21:36.165 [main] INFO  nextflow.cli.CmdRun - Launching `pipeline.nf` [sick_boyd] - revision: edf653c333
+Jul-27 15:21:36.177 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /scratch/c.c1656075/pangenome_vaccine/nextflow.config
+Jul-27 15:21:36.179 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /scratch/c.c1656075/pangenome_vaccine/nextflow.config
+Jul-27 15:21:36.206 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `slurm,singularity`
+Jul-27 15:21:36.643 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, standard, singularity]
+Jul-27 15:21:36.683 [main] DEBUG nextflow.Session - Session uuid: 9971843f-a59e-43ff-b503-1ae4314c2a05
+Jul-27 15:21:36.683 [main] DEBUG nextflow.Session - Run name: sick_boyd
+Jul-27 15:21:36.684 [main] DEBUG nextflow.Session - Executor pool size: 40
+Jul-27 15:21:36.722 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 19.07.0 build 5106
+  Created: 27-07-2019 13:22 UTC (14:22 BST)
+  System: Linux 3.10.0-957.12.2.el7.x86_64
+  Runtime: Groovy 2.5.6 on OpenJDK 64-Bit Server VM 11.0.5+10
+  Encoding: UTF-8 (ANSI_X3.4-1968)
+  Process: 414041@cl2 [10.212.1.82]
+  CPUs: 40 - Mem: 754.2 GB (27.8 GB) - Swap: 0 (0)
+Jul-27 15:21:36.754 [main] DEBUG nextflow.Session - Work-dir: /scratch/c.c1656075/pangenome_vaccine/work [lustre]
+Jul-27 15:21:36.755 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /scratch/c.c1656075/pangenome_vaccine/bin
+Jul-27 15:21:36.898 [main] DEBUG nextflow.Session - Session start invoked
+Jul-27 15:21:37.177 [main] WARN  nextflow.script.ScriptRunner - Nextflow version 19.07.0 does not match workflow required version: 19.01 -- Execution will continue, but things may break!
+Jul-27 15:21:37.178 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-27 15:21:37.226 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: covid/; pattern: *.fasta; options: [:]
+Jul-27 15:21:37.373 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.374 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.382 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Jul-27 15:21:37.396 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 20; pollInterval: 5s; dumpInterval: 5m 
+Jul-27 15:21:37.402 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Jul-27 15:21:37.432 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > prokka -- maxForks: 40
+Jul-27 15:21:37.474 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:multithreaded` matches label `multithreaded` for process with name roary
+Jul-27 15:21:37.483 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.484 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.489 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > roary -- maxForks: 40
+Jul-27 15:21:37.545 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:multithreaded` matches label `multithreaded` for process with name mash
+Jul-27 15:21:37.547 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.548 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.549 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > mash -- maxForks: 40
+Jul-27 15:21:37.557 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.558 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.559 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > kraken -- maxForks: 40
+Jul-27 15:21:37.564 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.565 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.566 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > core_genes -- maxForks: 40
+Jul-27 15:21:37.577 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:multithreaded` matches label `multithreaded` for process with name tajima
+Jul-27 15:21:37.578 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.579 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.580 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > tajima -- maxForks: 40
+Jul-27 15:21:37.584 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.585 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.586 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > translate_reference -- maxForks: 40
+Jul-27 15:21:37.597 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.597 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.599 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > split_fasta -- maxForks: 40
+Jul-27 15:21:37.612 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.613 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.620 [main] DEBUG nextflow.processor.TaskProcessor - Creating *combiner* operator for each param(s) at index(es): [0]
+Jul-27 15:21:37.629 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > mhc_i_binding -- maxForks: 40
+Jul-27 15:21:37.695 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-27 15:21:37.696 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-27 15:21:37.698 [main] DEBUG nextflow.processor.TaskProcessor - Creating *combiner* operator for each param(s) at index(es): [0]
+Jul-27 15:21:37.704 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > mhc_ii_binding -- maxForks: 40
+Jul-27 15:21:37.710 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jul-27 15:21:37.710 [main] DEBUG nextflow.Session - Session await
+Jul-27 15:21:38.308 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (37) > jobId: 17099051; workDir: /scratch/c.c1656075/pangenome_vaccine/work/10/36f6af54c3949e339232bff980eae6
+Jul-27 15:21:38.355 [Task submitter] INFO  nextflow.Session - [10/36f6af] Submitted process > prokka (37)
+Jul-27 15:21:38.698 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (29) > jobId: 17099052; workDir: /scratch/c.c1656075/pangenome_vaccine/work/42/8717515ffa5a30b8230d7d6ddbbf20
+Jul-27 15:21:38.699 [Task submitter] INFO  nextflow.Session - [42/871751] Submitted process > prokka (29)
+Jul-27 15:21:38.993 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (32) > jobId: 17099053; workDir: /scratch/c.c1656075/pangenome_vaccine/work/ce/6a2f2f683f8c4d9d3b415b22155f7f
+Jul-27 15:21:38.994 [Task submitter] INFO  nextflow.Session - [ce/6a2f2f] Submitted process > kraken (32)
+Jul-27 15:21:39.300 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (37) > jobId: 17099054; workDir: /scratch/c.c1656075/pangenome_vaccine/work/b2/a3a24a915fce115c2140d9a226eaaa
+Jul-27 15:21:39.301 [Task submitter] INFO  nextflow.Session - [b2/a3a24a] Submitted process > kraken (37)
+Jul-27 15:21:39.600 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (38) > jobId: 17099055; workDir: /scratch/c.c1656075/pangenome_vaccine/work/c6/a1b5294e73929c6ab5bd3efe592aa5
+Jul-27 15:21:39.601 [Task submitter] INFO  nextflow.Session - [c6/a1b529] Submitted process > kraken (38)
+Jul-27 15:21:40.201 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (33) > jobId: 17099056; workDir: /scratch/c.c1656075/pangenome_vaccine/work/c6/705d972dafcfaa5d0d54cf61a0fdf9
+Jul-27 15:21:40.202 [Task submitter] INFO  nextflow.Session - [c6/705d97] Submitted process > kraken (33)
+Jul-27 15:21:40.535 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (17) > jobId: 17099058; workDir: /scratch/c.c1656075/pangenome_vaccine/work/4b/0cbdc321e8c612127e760b86e7bd50
+Jul-27 15:21:40.537 [Task submitter] INFO  nextflow.Session - [4b/0cbdc3] Submitted process > prokka (17)
+Jul-27 15:21:40.875 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (8) > jobId: 17099059; workDir: /scratch/c.c1656075/pangenome_vaccine/work/62/64d665112ce7500afd5b3b469ec1a1
+Jul-27 15:21:40.876 [Task submitter] INFO  nextflow.Session - [62/64d665] Submitted process > kraken (8)
+Jul-27 15:21:41.208 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (20) > jobId: 17099060; workDir: /scratch/c.c1656075/pangenome_vaccine/work/27/e6248c0224824f784de85c27e1be12
+Jul-27 15:21:41.208 [Task submitter] INFO  nextflow.Session - [27/e6248c] Submitted process > kraken (20)
+Jul-27 15:21:41.625 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (24) > jobId: 17099061; workDir: /scratch/c.c1656075/pangenome_vaccine/work/92/657f9cc01393ae8008bba7a452e9e0
+Jul-27 15:21:41.626 [Task submitter] INFO  nextflow.Session - [92/657f9c] Submitted process > kraken (24)
+Jul-27 15:21:41.931 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (8) > jobId: 17099062; workDir: /scratch/c.c1656075/pangenome_vaccine/work/2b/3e55e2d5fecee081884b382065d0df
+Jul-27 15:21:41.932 [Task submitter] INFO  nextflow.Session - [2b/3e55e2] Submitted process > prokka (8)
+Jul-27 15:21:42.259 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (14) > jobId: 17099063; workDir: /scratch/c.c1656075/pangenome_vaccine/work/49/066ae9c9ec35314a3d6fadaf08701c
+Jul-27 15:21:42.260 [Task submitter] INFO  nextflow.Session - [49/066ae9] Submitted process > kraken (14)
+Jul-27 15:21:42.586 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (9) > jobId: 17099064; workDir: /scratch/c.c1656075/pangenome_vaccine/work/83/cf2685da656a2d7727ed6d731fe0f9
+Jul-27 15:21:42.587 [Task submitter] INFO  nextflow.Session - [83/cf2685] Submitted process > prokka (9)
+Jul-27 15:21:42.887 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (24) > jobId: 17099065; workDir: /scratch/c.c1656075/pangenome_vaccine/work/ee/2ee0a30be300c47a58d4d27c213fa9
+Jul-27 15:21:42.888 [Task submitter] INFO  nextflow.Session - [ee/2ee0a3] Submitted process > prokka (24)
+Jul-27 15:21:43.205 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (40) > jobId: 17099066; workDir: /scratch/c.c1656075/pangenome_vaccine/work/1a/47b7e4aa50bf2ae5fa8272d89ba1a5
+Jul-27 15:21:43.206 [Task submitter] INFO  nextflow.Session - [1a/47b7e4] Submitted process > kraken (40)
+Jul-27 15:21:43.514 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (16) > jobId: 17099067; workDir: /scratch/c.c1656075/pangenome_vaccine/work/da/995b619d218959177e084e963f7f69
+Jul-27 15:21:43.515 [Task submitter] INFO  nextflow.Session - [da/995b61] Submitted process > prokka (16)
+Jul-27 15:21:43.864 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (15) > jobId: 17099068; workDir: /scratch/c.c1656075/pangenome_vaccine/work/1d/a1f482ea3d8c6bd96d6a8649864599
+Jul-27 15:21:43.864 [Task submitter] INFO  nextflow.Session - [1d/a1f482] Submitted process > prokka (15)
+Jul-27 15:21:44.223 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (19) > jobId: 17099069; workDir: /scratch/c.c1656075/pangenome_vaccine/work/b8/bf4903ed9156da2d9ebb43ed16c8d3
+Jul-27 15:21:44.224 [Task submitter] INFO  nextflow.Session - [b8/bf4903] Submitted process > prokka (19)
+Jul-27 15:21:44.534 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process prokka (1) > jobId: 17099070; workDir: /scratch/c.c1656075/pangenome_vaccine/work/5d/7e0a96319f1c6920998ec8920b546c
+Jul-27 15:21:44.535 [Task submitter] INFO  nextflow.Session - [5d/7e0a96] Submitted process > prokka (1)
+Jul-27 15:21:44.850 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (23) > jobId: 17099071; workDir: /scratch/c.c1656075/pangenome_vaccine/work/11/92ce5d9b925ae936a3222193523d44
+Jul-27 15:21:44.851 [Task submitter] INFO  nextflow.Session - [11/92ce5d] Submitted process > kraken (23)
+Jul-27 15:21:52.473 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 17099053; id: 72; name: kraken (32); status: COMPLETED; exit: 2; error: -; workDir: /scratch/c.c1656075/pangenome_vaccine/work/ce/6a2f2f683f8c4d9d3b415b22155f7f started: 1595859712418; exited: 2020-07-27T14:21:48Z; ]
+Jul-27 15:21:52.511 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'kraken (32)'
+
+Caused by:
+  Process `kraken (32)` terminated with an error exit status (2)
+
+Command executed:
+
+  kraken2 --db minikraken2 --report CeMM0260_2020_kraken.report CeMM0260_2020.fasta
+
+Command exit status:
+  2
+
+Command output:
+  (empty)
+
+Command error:
+  kraken2: unable to find minikraken2 in $KRAKEN2_DB_PATH (undefined)
+
+Work dir:
+  /scratch/c.c1656075/pangenome_vaccine/work/ce/6a2f2f683f8c4d9d3b415b22155f7f
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+Jul-27 15:21:52.540 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `kraken (32)` terminated with an error exit status (2)
+Jul-27 15:21:52.557 [Task monitor] DEBUG nextflow.Session - The following nodes are still active:
+[process] prokka
+
+[process] roary
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: gff
+  port 1: (cntrl) -     ; channel: $
+
+[process] mash
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: aa_fastas
+  port 1: (cntrl) -     ; channel: $
+
+[process] core_genes
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: presence
+  port 1: (cntrl) -     ; channel: $
+
+[process] tajima
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: tajima_in
+  port 1: (cntrl) -     ; channel: $
+
+[process] translate_reference
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: reference_dna
+  port 1: (cntrl) -     ; channel: $
+
+[process] split_fasta
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: ref
+  port 1: (cntrl) -     ; channel: $
+
+[process] mhc_i_binding
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: __$eachinparam<0>
+  port 1: (cntrl) -     ; channel: $
+
+[process] mhc_ii_binding
+  status=ACTIVE
+  port 0: (value) OPEN  ; channel: __$eachinparam<0>
+  port 1: (cntrl) -     ; channel: $
+
+Jul-27 15:21:52.561 [main] DEBUG nextflow.Session - Session await > all process finished
+Jul-27 15:21:52.562 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-27 15:21:52.566 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 17099054; id: 77; name: kraken (37); status: COMPLETED; exit: 2; error: -; workDir: /scratch/c.c1656075/pangenome_vaccine/work/b2/a3a24a915fce115c2140d9a226eaaa started: 1595859712564; exited: 2020-07-27T14:21:48Z; ]
+Jul-27 15:21:52.567 [main] WARN  n.processor.TaskPollingMonitor - Killing pending tasks (18)
+Jul-27 15:21:52.570 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 17099055; id: 78; name: kraken (38); status: COMPLETED; exit: 2; error: -; workDir: /scratch/c.c1656075/pangenome_vaccine/work/c6/a1b5294e73929c6ab5bd3efe592aa5 started: 1595859712568; exited: 2020-07-27T14:21:48Z; ]
+Jul-27 15:21:52.575 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 17099056; id: 73; name: kraken (33); status: COMPLETED; exit: 2; error: -; workDir: /scratch/c.c1656075/pangenome_vaccine/work/c6/705d972dafcfaa5d0d54cf61a0fdf9 started: 1595859712572; exited: 2020-07-27T14:21:48Z; ]
+Jul-27 15:21:52.588 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 17099059; id: 48; name: kraken (8); status: COMPLETED; exit: 2; error: -; workDir: /scratch/c.c1656075/pangenome_vaccine/work/62/64d665112ce7500afd5b3b469ec1a1 started: 1595859712579; exited: 2020-07-27T14:21:48Z; ]
+Jul-27 15:21:52.598 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 17099060; id: 60; name: kraken (20); status: COMPLETED; exit: 2; error: -; workDir: /scratch/c.c1656075/pangenome_vaccine/work/27/e6248c0224824f784de85c27e1be12 started: 1595859712591; exited: 2020-07-27T14:21:48Z; ]
+Jul-27 15:21:52.618 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 17099061; id: 64; name: kraken (24); status: COMPLETED; exit: 2; error: -; workDir: /scratch/c.c1656075/pangenome_vaccine/work/92/657f9cc01393ae8008bba7a452e9e0 started: 1595859712599; exited: 2020-07-27T14:21:48Z; ]
+Jul-27 15:21:52.783 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process kraken (22) > jobId: 17099114; workDir: /scratch/c.c1656075/pangenome_vaccine/work/f6/3689c1e9359bfea13c690a19fb1f82
+Jul-27 15:21:52.785 [Task submitter] INFO  nextflow.Session - [f6/3689c1] Submitted process > kraken (22)
+Jul-27 15:21:52.835 [main] DEBUG nextflow.trace.StatsObserver - Workflow completed > WorkflowStats[succeedCount=0; failedCount=24; ignoredCount=0; cachedCount=0; succeedDuration=0ms; failedDuration=92ms; cachedDuration=0ms]
+Jul-27 15:21:52.935 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Jul-27 15:21:52.949 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

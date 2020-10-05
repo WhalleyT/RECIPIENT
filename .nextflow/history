@@ -1,0 +1,13 @@
+2020-07-27 13:36:38	-	prickly_magritte	-	3c1c1a70942571d1a052b6f0ae1ceb44	57fed375-aa82-4d59-81cf-45ed44fc30c3	nextflow run pipeline.nf
+2020-07-27 15:08:15	2.2s	infallible_poisson	ERR	3c1c1a70942571d1a052b6f0ae1ceb44	86827131-f3ec-4ec2-acb0-e6d2d3fda25c	nextflow run pipeline.nf
+2020-07-27 15:08:57	2.5s	spontaneous_cori	ERR	3c1c1a70942571d1a052b6f0ae1ceb44	34416f18-a3eb-42b9-b50c-9ceb6d1c4e0a	nextflow run pipeline.nf
+2020-07-27 15:09:41	57s	stoic_mccarthy	ERR	3c1c1a70942571d1a052b6f0ae1ceb44	38a4c5c9-abc6-4ccd-bcd9-eb7fc4563fb7	nextflow run pipeline.nf -profile slurm,singularity
+2020-07-27 15:13:13	53.8s	desperate_tuckerman	ERR	4482d718e78bb9bdf84d5330dda2990c	b6f605cc-70cf-4a11-bfde-934ab47afb25	nextflow run pipeline.nf -profile slurm,singularity
+2020-07-27 15:19:18	22s	modest_mandelbrot	ERR	1c182378adf068f210150d61cad5bbab	7361f8fa-ee32-4220-b166-0a06c920cb22	nextflow run pipeline.nf -profile slurm,singularity
+2020-07-27 15:21:36	16.9s	sick_boyd	ERR	edf653c3334b597e3a0788f560b48ae0	9971843f-a59e-43ff-b503-1ae4314c2a05	nextflow run pipeline.nf -profile slurm,singularity
+2020-07-27 15:32:25	32.9s	suspicious_ardinghelli	ERR	edf653c3334b597e3a0788f560b48ae0	ed2fce51-3569-4824-bdd7-bba519a4cd48	nextflow run pipeline.nf -profile slurm,singularity
+2020-07-27 15:34:19	8h 28m 12s	furious_williams	ERR	4482d718e78bb9bdf84d5330dda2990c	4f43ad5c-3869-4d19-98a2-dad3f0092ceb	nextflow run pipeline.nf -profile slurm,singularity
+2020-07-28 11:54:30	3h 57m 30s	crazy_kalman	ERR	4482d718e78bb9bdf84d5330dda2990c	23c0bdf9-18fd-4dad-8b89-af9b96b4e152	nextflow run pipeline.nf -profile singularity,slurm
+2020-07-29 09:27:02	1h 14m 18s	mad_bartik	ERR	4482d718e78bb9bdf84d5330dda2990c	23c0bdf9-18fd-4dad-8b89-af9b96b4e152	nextflow run pipeline.nf -profile singularity,slurm -resume
+2020-07-29 12:43:33	16m 32s	sick_wilson	ERR	4482d718e78bb9bdf84d5330dda2990c	23c0bdf9-18fd-4dad-8b89-af9b96b4e152	nextflow run pipeline.nf -profile singularity,slurm -resume
+2020-07-29 13:00:09	1h 15m 8s	disturbed_morse	ERR	4482d718e78bb9bdf84d5330dda2990c	23c0bdf9-18fd-4dad-8b89-af9b96b4e152	nextflow run pipeline.nf -profile singularity,slurm -resume
