@@ -8,3 +8,5 @@ kraken_db/
 kraken_db/*
 *.nextflow*
 .nextflow/
+results/
+results/*
