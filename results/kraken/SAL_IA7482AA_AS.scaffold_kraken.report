@@ -1,0 +1,43 @@
+  3.23	3	3	U	0	unclassified
+ 96.77	90	2	R	1	root
+ 94.62	88	0	R1	131567	  cellular organisms
+ 94.62	88	1	D	2	    Bacteria
+ 93.55	87	1	P	1224	      Proteobacteria
+ 92.47	86	2	C	1236	        Gammaproteobacteria
+ 90.32	84	0	O	91347	          Enterobacterales
+ 90.32	84	7	F	543	            Enterobacteriaceae
+ 82.80	77	2	G	590	              Salmonella
+ 80.65	75	1	S	28901	                Salmonella enterica
+ 79.57	74	26	S1	59201	                  Salmonella enterica subsp. enterica
+ 10.75	10	9	S2	149539	                    Salmonella enterica subsp. enterica serovar Enteritidis
+  1.08	1	1	S3	696867	                      Salmonella enterica subsp. enterica serovar Enteritidis str. 18569
+  9.68	9	8	S2	90371	                    Salmonella enterica subsp. enterica serovar Typhimurium
+  1.08	1	1	S3	1454636	                      Salmonella enterica subsp. enterica serovar Typhimurium str. USDA-ARS-USMARC-1896
+  8.60	8	8	S2	90370	                    Salmonella enterica subsp. enterica serovar Typhi
+  3.23	3	3	S2	28150	                    Salmonella enterica subsp. enterica serovar Senftenberg
+  2.15	2	0	S2	115981	                    Salmonella enterica subsp. enterica serovar Montevideo
+  1.08	1	1	S3	1454613	                      Salmonella enterica subsp. enterica serovar Montevideo str. CDC 2010K-0257
+  1.08	1	1	S3	1454612	                      Salmonella enterica subsp. enterica serovar Montevideo str. CDC 2013K-0218
+  1.08	1	1	S2	1077085	                    Salmonella enterica subsp. enterica serovar Fresno
+  1.08	1	1	S2	1243585	                    Salmonella enterica subsp. enterica serovar Ouakam
+  1.08	1	0	S2	1242085	                    Salmonella enterica subsp. enterica serovar Macclesfield
+  1.08	1	1	S3	1242107	                      Salmonella enterica subsp. enterica serovar Macclesfield str. S-1643
+  1.08	1	0	S2	1242080	                    Salmonella enterica subsp. enterica serovar Djakarta
+  1.08	1	1	S3	1242091	                      Salmonella enterica subsp. enterica serovar Djakarta str. S-1087
+  1.08	1	0	S2	119912	                    Salmonella enterica subsp. enterica serovar Choleraesuis
+  1.08	1	1	S3	904139	                      Salmonella enterica subsp. enterica serovar Choleraesuis str. SCSA50
+  1.08	1	1	S2	358771	                    Salmonella enterica subsp. enterica serovar Kedougou
+  1.08	1	0	S2	149386	                    Salmonella enterica subsp. enterica serovar Chester
+  1.08	1	1	S3	941190	                      Salmonella enterica subsp. enterica serovar Chester str. ATCC 11997
+  1.08	1	0	S2	915158	                    Salmonella enterica subsp. enterica serovar Manchester
+  1.08	1	1	S3	1242108	                      Salmonella enterica subsp. enterica serovar Manchester str. ST278
+  1.08	1	0	S2	181798	                    Salmonella enterica subsp. enterica serovar Sloterdijk
+  1.08	1	1	S3	938141	                      Salmonella enterica subsp. enterica serovar Sloterdijk str. ATCC 15791
+  1.08	1	1	S2	192955	                    Salmonella enterica subsp. enterica serovar Kentucky
+  1.08	1	1	S2	224727	                    Salmonella enterica subsp. enterica serovar Kottbus
+  1.08	1	1	S2	340190	                    Salmonella enterica subsp. enterica serovar Schwarzengrund
+  1.08	1	1	S2	1962641	                    Salmonella enterica subsp. enterica serovar Birkenhead
+  1.08	1	1	S2	595	                    Salmonella enterica subsp. enterica serovar Infantis
+  1.08	1	0	S2	604	                    Salmonella enterica subsp. enterica serovar Gallinarum/Pullorum
+  1.08	1	1	S3	1225522	                      Salmonella enterica subsp. enterica serovar Gallinarum/Pullorum str. CDC1983-67
+  1.08	1	1	S2	594	                    Salmonella enterica subsp. enterica serovar Gallinarum

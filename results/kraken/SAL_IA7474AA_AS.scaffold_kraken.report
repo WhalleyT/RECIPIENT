@@ -1,0 +1,13 @@
+  2.86	2	2	U	0	unclassified
+ 97.14	68	0	R	1	root
+ 97.14	68	3	R1	131567	  cellular organisms
+ 92.86	65	1	D	2	    Bacteria
+ 91.43	64	1	P	1224	      Proteobacteria
+ 90.00	63	0	C	1236	        Gammaproteobacteria
+ 90.00	63	1	O	91347	          Enterobacterales
+ 88.57	62	7	F	543	            Enterobacteriaceae
+ 78.57	55	11	G	590	              Salmonella
+ 62.86	44	1	S	28901	                Salmonella enterica
+ 61.43	43	7	S1	59201	                  Salmonella enterica subsp. enterica
+ 51.43	36	35	S2	54388	                    Salmonella enterica subsp. enterica serovar Paratyphi A
+  1.43	1	1	S3	941189	                      Salmonella enterica subsp. enterica serovar Paratyphi A str. ATCC 11511
