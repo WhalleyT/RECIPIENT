@@ -1,0 +1,13 @@
+name: recipient
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - prokka
+  - roary
+  - kraken2
+  - panaroo
+  - pirate
+
+

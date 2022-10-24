@@ -10,3 +10,4 @@ kraken_db/*
 .nextflow/
 results/
 results/*
+caller.sh

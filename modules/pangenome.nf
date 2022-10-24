@@ -5,6 +5,27 @@ Steps are:
     - create pangenome with Roary
 */
 
+
+process panaroo {
+    label 'multithreaded'
+    publishDir "${params.outdir}/pangenome", mode: 'copy'
+
+    input:
+    file(gffs)
+
+    output:
+    path("results/pan_genome_reference.fa", emit: pan_genome)
+    path("results/gene_presence_absence_roary.csv", emit: gene_presence)
+    path("combined_DNA_CDS.fasta", emit: alignment_files)
+
+    script:
+    """
+    panaroo -t $task.cpus -o results -i *.gff --clean-mode strict
+    """
+
+}
+
+
 process prokka {
     publishDir "${params.outdir}/prokka", mode: 'copy'
     
@@ -52,23 +73,3 @@ process roary {
     roary -p ${task.cpus} -e -n -z $gffs
     """
 }
-
-
-process panaroo {
-    label 'multithreaded'
-    publishDir "${params.outdir}/pangenome", mode: 'copy'
-
-    input:
-    file(gffs)
-
-    output:
-    path("results/pan_genome_reference.fa", emit pan_genome)
-    path("results/gene_presence_absence_roary.csv", emit: gene_presence)
-    path("combined_DNA_CDS.fasta", emit: alignment_files)
-
-    script:
-    """
-    panaroo -t $task.cpus -o results -i *.gff --clean-mode strict
-    """
-}
-
