@@ -26,12 +26,15 @@ process kmer_distance {
 process kraken {
     publishDir "${params.outdir}/kraken", mode: 'copy', overwrite: 'true'
 
+    label "multithreaded"
+
      input:
         file(fasta)
     output:
         file("${fasta.baseName}_kraken.report")
     script:
          """
-        kraken2 --db ${params.kraken_db}  --report ${fasta.baseName}_kraken.report ${fasta} 
+        kraken2 --db ${params.kraken_db}  --memory-mapping \
+        --report ${fasta.baseName}_kraken.report ${fasta} 
          """
 }
