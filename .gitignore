@@ -2,3 +2,12 @@ singularity_images/
 singuarlity_images/*
 work/
 work/*
+input/
+input/*
+kraken_db/
+kraken_db/*
+*.nextflow*
+.nextflow/
+results/
+results/*
+caller.sh
