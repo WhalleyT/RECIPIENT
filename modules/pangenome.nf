@@ -16,7 +16,7 @@ process panaroo {
     output:
     path("results/pan_genome_reference.fa", emit: pan_genome)
     path("results/gene_presence_absence_roary.csv", emit: gene_presence)
-    path("combined_DNA_CDS.fasta", emit: alignment_files)
+    path("results/combined_DNA_CDS.fasta", emit: alignment_files)
 
     script:
     """
@@ -28,10 +28,6 @@ process panaroo {
 
 process prokka {
     publishDir "${params.outdir}/prokka", mode: 'copy'
-    
-    validExitStatus "-", 0, 5
-    errorStrategy "retry"
-    maxRetries 2
     
     input:
     file(fasta)

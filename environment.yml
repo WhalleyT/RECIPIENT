@@ -9,5 +9,5 @@ dependencies:
   - kraken2
   - panaroo
   - pirate
-
+  - python>=3.7
 
